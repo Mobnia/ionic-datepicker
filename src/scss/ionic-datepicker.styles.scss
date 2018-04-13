@@ -103,9 +103,14 @@
   padding: 0;
 }
 
-.ionic_datepicker_popup .popup-body .month_select:after, .ionic_datepicker_popup .popup-body .year_select:after {
-  right: 5px;
+.ionic_datepicker_popup .popup-body .month_select .caret, .ionic_datepicker_popup .popup-body .year_select .caret {
+  right: 0;
   color: $date-picker-positive;
+  position: absolute;
+}
+
+.ionic_datepicker_popup .popup-body .month_select::after, .ionic_datepicker_popup .popup-body .year_select::after {
+  content: none;
 }
 
 .ionic_datepicker_popup .popup-body .show_nav {
@@ -202,9 +207,14 @@
   padding: 0 10px;
 }
 
-.ionic_datepicker_modal .month_select:after, .ionic_datepicker_modal .year_select:after {
-  right: 5px;
+.ionic_datepicker_modal .month_select .caret, .ionic_datepicker_modal .year_select .caret {
+  right: 0;
   color: $date-picker-positive;
+  position: absolute;
+}
+
+.ionic_datepicker_modal .month_select::after, .ionic_datepicker_modal .year_select::after {
+  content: none
 }
 
 .ionic_datepicker_modal .padding_left_5px {
