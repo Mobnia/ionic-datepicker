@@ -68,6 +68,7 @@
               ng-click="setIonicDatePickerTodayDate()">{{mainObj.todayLabel}}
       </button>
       <button class="button button-clear button-block button_close"
+              ng-if="mainObj.showCloseButton"
               ng-click="closeIonicDatePickerModal()">{{mainObj.closeLabel}}
       </button>
     </div>

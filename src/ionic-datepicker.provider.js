@@ -13,6 +13,7 @@ angular.module('ionic-datepicker.provider', [])
       monthsList: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
       templateType: 'popup',
       showTodayButton: false,
+      showCloseButton: true,
       closeOnSelect: false,
       disableWeekdays: []
     };
@@ -214,7 +215,7 @@ angular.module('ionic-datepicker.provider', [])
       });
 
       function openModal() {
-        $scope.modal.show();
+        return $scope.modal.show();
       }
 
       function closeModal() {
@@ -280,13 +281,15 @@ angular.module('ionic-datepicker.provider', [])
           });
         }
 
-        buttons.push({
-          text: $scope.mainObj.closeLabel,
-          type: 'button_close',
-          onTap: function (e) {
-            // 'ionic-datepicker popup closed.'
-          }
-        });
+        if ($scope.mainObj.showCloseButton) {
+          buttons.push({
+            text: $scope.mainObj.closeLabel,
+            type: 'button_close',
+            onTap: function (e) {
+              // 'ionic-datepicker popup closed.'
+            }
+          });
+        }
 
         if ($scope.mainObj.templateType.toLowerCase() == 'popup') {
           $scope.popup = $ionicPopup.show({
@@ -295,8 +298,9 @@ angular.module('ionic-datepicker.provider', [])
             cssClass: 'ionic_datepicker_popup',
             buttons: buttons
           });
+          return $scope.popup;
         } else {
-          openModal();
+          return openModal();
         }
       };
 
